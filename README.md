@@ -16,4 +16,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Configuration:
 
-Change your CKO public and secret keys in environments/environment.ts. This would be good to go for testing in your own environment of Checkout Sandbox.
+If you need to test for your own checkout sandbox environment, change the following properties in environments/environment.ts:
+
+- gatewayMerchantID = <your_public_key> (starting with pk_xxxx)
+- public_key = <your_public_key> (starting with pk_xxxx)
+- secret_key = <your_secret_key> (starting with sk_xxxx)
+
+Serve the application again and happy testing.
