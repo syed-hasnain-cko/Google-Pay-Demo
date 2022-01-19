@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from '../environments/environment'
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,6 @@ export class AppComponent {
   constructor(private http: HttpClient){
 
   }
-  gateway_CKO: String = "checkoutltd"
-  public_API_key_CKO : String = "pk_test_fa6df4e6-6c34-4560-82e9-f407f86c18fc";
-  secret_API_key_CKO : String = "sk_test_cb8572cb-715a-4e6f-866e-cd85df2b8f35";
-  baseURL : String = "https://api.sandbox.checkout.com";
   tokenizationDataString: any = {};
   tokenizationDataObject: any = {};
   ckoTokenData: any = {};
@@ -37,8 +34,8 @@ export class AppComponent {
         tokenizationSpecification:{
           type:'PAYMENT_GATEWAY',
           parameters:{
-            gateway:`${this.gateway_CKO}`,
-            gatewayMerchantId:`${this.public_API_key_CKO}`
+            gateway:`${environment.gateway}`,
+            gatewayMerchantId:`${environment.public_key}`
           }
         }
       }
@@ -91,9 +88,9 @@ export class AppComponent {
     }
   }
 
-    return this.http.post<any>(`${this.baseURL}/tokens`, tokenObject, {
+    return this.http.post<any>(`${environment.baseAPIUrl}/tokens`, tokenObject, {
       headers: { 
-          Authorization: `${this.public_API_key_CKO}`
+          Authorization: `${environment.public_key}`
       }
   }).subscribe(data =>{
     console.log(data);
@@ -111,9 +108,9 @@ requestPayment(event: Event){
     "amount": 100,
     "currency": "EUR"
   }  
-    this.http.post<any>(`${this.baseURL}/payments`, paymentRequest, {
+    this.http.post<any>(`${environment.baseAPIUrl}/payments`, paymentRequest, {
     headers: { 
-        Authorization: `${this.secret_API_key_CKO}`
+        Authorization: `${environment.secret_key}`
     }
 }).subscribe(data => {
  console.log(data["id"]);
