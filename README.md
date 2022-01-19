@@ -10,4 +10,4 @@ Run `ng serve --hmr` for a dev server. Navigate to `http://localhost:4200/`. The
 
 # Configuration:
 
-Change your CKO public and secret keys in environment/environment.ts. This would be good to go for testing. 
+Change your CKO public and secret keys in environments/environment.ts. This would be good to go for testing. 

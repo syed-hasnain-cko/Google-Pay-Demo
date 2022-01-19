@@ -24,7 +24,7 @@ buttonColor="black"
 <div *ngIf = "!isDisabledStep2">
   <h4>Step 2: Request token from Checkout.com now.</h4>
 <br>
-  <button class="btn btn-primary" (click)="getCKOToken($event)">Get CKO Token</button>
+  <button class="btn btn-primary" [disabled] = "(paymentID | json) != '{}' || (ckoToken | json) != '{}' " (click)="getCKOToken($event)">Get CKO Token</button>
 </div>
 <br>
 <br>
@@ -35,15 +35,19 @@ buttonColor="black"
   <br>
   <h4>Step 3: Request payment from Checkout.com.</h4>
   <br>
-  <button class="btn btn-primary" (click)="requestPayment($event)">CKO Payment Request</button>
+  <button class="btn btn-primary" [disabled] = "(paymentID | json) != '{}'" (click)="requestPayment($event)">CKO Payment Request</button>
 </div>
 <br>
 <br>
 <div  *ngIf = "(paymentID | json) != '{}'">
   <h4>Payment request successful.</h4>
   <br>
-  {{paymentID}}
 </div>
+<span *ngIf = "(paymentID | json) != '{}'" style="width:100px;">{{paymentID}}</span>
+  <span  *ngIf = "(paymentID | json) != '{}'" style="padding-left: 30px;">
+    <button class="btn btn-primary" [disabled] = "(paymentID | json) == '{}'" (click)="makeAnotherPayment($event)">Make Another Payment</button>
+  </span>
+
 
 
 

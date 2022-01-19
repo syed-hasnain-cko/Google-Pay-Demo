@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment'
 
 @Component({
@@ -65,7 +64,7 @@ export class AppComponent {
     if(this.tokenizationDataObject){
       this.isDisabledStep2 = false;
       this.tokenizationDataString = JSON.stringify(this.tokenizationDataObject, undefined,4);
-      console.log(JSON.stringify(this.tokenizationDataObject));
+      console.log(this.tokenizationDataString);
     }    
     return{transactionState:'SUCCESS'}
   }
@@ -116,5 +115,9 @@ requestPayment(event: Event){
  console.log(data["id"]);
  this.paymentID = data["id"];
 });
+}
+
+makeAnotherPayment(event:Event){
+  window.location.reload();
 }
 }
