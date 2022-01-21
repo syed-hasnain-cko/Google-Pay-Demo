@@ -70,7 +70,7 @@ export class GooglePayComponent implements OnInit {
     
     if(this.tokenizationDataObject){
       this.isDisabledStep2 = false;
-      this.tokenizationDataString = JSON.stringify(this.tokenizationDataObject, undefined,4);
+      this.tokenizationDataString = JSON.stringify(this.tokenizationDataObject, undefined,2);
       console.log(this.tokenizationDataString);
     }    
     return{transactionState:'SUCCESS'}

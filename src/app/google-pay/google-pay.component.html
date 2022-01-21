@@ -15,7 +15,7 @@ buttonColor="black"
 <br>
 <div *ngIf = "(tokenizationDataString | json) != '{}'" style = "word-wrap: break-word;">
   <h4>You can use this object to create CKO Token using Postman/Curl request directly.</h4>
-  "type" : "googlepay" , "token_data" : {{tokenizationDataString}}
+  <pre style="white-space:pre-wrap; word-wrap:break-word;">&#123; "type" : "googlepay" , <br> "token_data" : {{tokenizationDataString}}&#125;</pre>
 </div>
 <br>
 
