@@ -98,12 +98,14 @@ requestPayment(event: Event){
   let paymentRequestModel: PaymentRequestModel = new PaymentRequestModel(
     100,
     "EUR",
+    "pc_oxr4t4p3nseejeqdjqk3pdlpm4",
     new Source(
       this.ckoToken,
       "token"
     )
   ) 
       this.paymentRequestService.requestPayment(paymentRequestModel).subscribe(data => {
+        
       console.log(data["id"]);
       this.paymentID = data["id"];
 });

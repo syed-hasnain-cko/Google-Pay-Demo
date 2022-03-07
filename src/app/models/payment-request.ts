@@ -1,17 +1,8 @@
 
-// export interface PaymentRequestModel{
-//     amount:          number;
-//     currency:        string;
-//     source:          Source;
-// }
-
-// export interface Source{
-//     type: string;
-//     token: string;
-// } 
 export class PaymentRequestModel {
     constructor(public amount: number, 
                 public currency: string, 
+                public processing_channel_id: string,
                 public source: Source){}
  }
  export class Source{
