@@ -20,6 +20,8 @@ If you need to test for your own checkout sandbox environment, change the follow
 
 - gatewayMerchantID = <your_public_key> (starting with pk_xxxx)
 - public_key = <your_public_key> (starting with pk_xxxx)
-- secret_key = <your_secret_key> (starting with sk_xxxx)
+- secret_key = <your_secret_key> (starting with sk_xxxx) 
+
+Note: For NAS, put Bearer prefix before secret key.
 
 Serve the application again and happy testing.
